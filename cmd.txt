@@ -1,0 +1,14 @@
+// Creating the project
+dotnet new webapi -o TodoApi
+
+// Install in memory database
+dotnet add package Microsoft.EntityFrameworkCore.InMemory
+
+// Adding dependencies
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet tool install -g dotnet-aspnet-codegenerator 
+
+// scaffold a controller
+dotnet-aspnet-codegenerator controller -name TodoItemsController -async -api -m TodoItem -dc TodoContext -outDir Controllers
